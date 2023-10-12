@@ -7,6 +7,7 @@
 
 name: Java CI with Gradle
 
+
 env:
   AWS_REGION: "ap-northeast-2"
   ECR_REPOSITORY: "portfolio_api"
