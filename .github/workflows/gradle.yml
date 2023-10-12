@@ -7,6 +7,10 @@
 
 name: Java CI with Gradle
 
+env:
+  AWS_REGION: "ap-northeast-2"
+  ECR_REPOSITORY: "portfolio_api"
+  IMAGE_TAG: latest
 
 on:
   push:
@@ -18,6 +22,35 @@ permissions:
   contents: read
 
 jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@4
+
+    - name: configure AWS credentials
+      uses: aws-actions/configure-aws-credential@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ROLE_API_IAM }}
+        aws-secret-access-key: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
+        aws-region: ${{ env.AWS_REGION }} 
+        
+    - name: Login to AWS ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Aws ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.lo.login-ecr.outputs.registry }}
+      run:
+        docker build -t $ECR_REPOSITORY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} .
+        docker push $ECR_REPOSITORY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}"    
+        
   build:
 
     runs-on: ubuntu-latest
