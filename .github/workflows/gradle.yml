@@ -29,27 +29,28 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@4
+      uses: actions/checkout@v3
 
-    - name: configure AWS credentials
-      uses: aws-actions/configure-aws-credential@v1
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ROLE_API_IAM }}
         aws-secret-access-key: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
-        aws-region: ${{ env.AWS_REGION }} 
-        
-    - name: Login to AWS ECR
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, tag, and push image to Aws ECR
+    - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
-        ECR_REGISTRY: ${{ steps.lo.login-ecr.outputs.registry }}
-      run:
-        docker build -t $ECR_REPOSITORY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} .
-        docker push $ECR_REPOSITORY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}"    
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      run: |
+        
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}"
         
   build:
 
