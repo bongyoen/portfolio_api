@@ -42,7 +42,7 @@ jobs:
         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
         with:
           arguments: build
-      # Spring Boot 어플리케이션 Build (1)
+      # Spring Boot 어플리케이션 Build(1)
       - name: Spring Boot Build
         run: ./gradlew clean build --exclude-task test
               
