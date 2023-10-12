@@ -1,11 +1,11 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.4'
+    id 'org.springframework.boot' version '2.7.7'
     id 'io.spring.dependency-management' version '1.1.3'
 }
 
 group = 'com.co'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 
 java {
     sourceCompatibility = '17'
@@ -23,18 +23,48 @@ repositories {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter')
-    implementation('com.amazonaws:aws-lambda-java-core:1.2.2')
-    implementation('com.amazonaws:aws-lambda-java-events:3.11.1')
+
+
+    implementation 'org.springframework.cloud:spring-cloud-config-server'
+    implementation 'org.projectlombok:lombok:1.18.28'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // Spring Cloud Function 을 위한 의존성
+    implementation 'org.springframework.cloud:spring-cloud-function-adapter-aws'
+    // AWS Lambda 에 배포하기 위한 의존성
+    implementation group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.2.2'
+    // AWS Lambda 이벤트를 다루기 위한 의존성
+    implementation group: 'com.amazonaws', name: 'aws-lambda-java-events', version: '3.11.1'
+    implementation 'org.springframework.cloud:spring-cloud-starter-function-web'
+    implementation('com.amazonaws.serverless:aws-serverless-java-container-springboot2:1.9.3')
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-bootJar {
-    classifier = 'aws'
-    mainClassName = 'com.ex'
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.7"
+    }
+}
+
+jar{
+    enabled=true
+    archiveClassifier = '' // Classifier 제거
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+// 빌드 후 코드를 zip 파일로 압축
+tasks.register('buildZip', Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+
+    }
+}
+
