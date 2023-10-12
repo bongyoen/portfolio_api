@@ -9,7 +9,7 @@ name: Java CI with Gradle
 
 env:
   AWS_REGION: "ap-northeast-2"
-  ECR_REPOSITORY: "portfolio_api"
+  ECR_REPOSITORY: "560531082032.dkr.ecr.ap-northeast-2.amazonaws.com/portfolio_api"
   IMAGE_TAG: latest
 
 on:
