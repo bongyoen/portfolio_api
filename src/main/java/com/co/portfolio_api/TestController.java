@@ -18,4 +18,11 @@ public class TestController {
         System.out.println("info컨트롤러에 도달");
         return new ResponseEntity<>("접근완료", HttpStatus.OK);
     }
+
+    @GetMapping(value = "/")
+    public ResponseEntity<String> restTest1() {
+
+        System.out.println("info컨트롤러에 도달1");
+        return new ResponseEntity<>("접근완료1", HttpStatus.OK);
+    }
 }
