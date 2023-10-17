@@ -61,4 +61,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
           ECR_REPO_URI: ${{ secrets.ECR_REPO_URI }}
         run: |
-          aws apprunner start-deployment --service-arn arn:aws:apprunner:us-east-1:560531082032:service/portfolio-API/e21a35b3f0a14ebbbaed0690f48f7a58 --region us-east-1
+          aws apprunner start-deployment --service-arn arn:aws:apprunner:us-east-1:560531082032:service/portfolioApi/45428e052b1c4b28b6e6dbefe96855d9 --region us-east-1
