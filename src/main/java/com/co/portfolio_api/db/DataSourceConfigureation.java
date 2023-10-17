@@ -35,8 +35,6 @@ public class DataSourceConfigureation {
         routingDataSourceImpl.setTargetDataSources(targetDataSource);
         routingDataSourceImpl.setDefaultTargetDataSource(writeDataSource);
 
-
-
         return routingDataSourceImpl;
     }
 }

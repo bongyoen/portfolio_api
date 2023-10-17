@@ -39,15 +39,9 @@ public class SshTunnelingInit {
 
     public Integer buildSshDbConnection(String dbEndpoint, Integer dbPort) {
 
-        if (host == null) {
+        if (host == null) return 0;
 
-
-
-            return 0;
-        }
-
-
-        Integer forwardedPort = null;
+        int forwardedPort;
 
         JSch jSch = new JSch();
 

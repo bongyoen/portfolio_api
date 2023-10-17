@@ -12,15 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 public class PortfolioApiApplication implements ApplicationRunner{
 
-    private final ExampleService exampleService;
     public static void main(String[] args) {
         SpringApplication.run(PortfolioApiApplication.class, args);
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("start");
-        exampleService.insertExample();
-        exampleService.getList();
     }
 }
