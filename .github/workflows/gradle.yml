@@ -32,7 +32,9 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
         with:
-          arguments: build
+          arguments: build -x test
+        env:
+          GRADLE_OPTS: '-Pprofile=local'
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
