@@ -1,7 +1,6 @@
 server:
   port: 8080
 
-
 spring:
   mvc:
     pathmatch:
@@ -16,39 +15,31 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-
   datasource:
-    master:
+    ssh:
+      host: ec2-54-80-124-254.compute-1.amazonaws.com
+      port: 22
+      user: ubuntu
+      keyfile: src/main/resources/portfolio-api-monitering-instance.pem
+    write:
       hikari:
         driver-class-name: org.postgresql.Driver
         url: jdbc:postgresql://localhost:[forwardedPort]/postgres
-        read-only: false
+        port: 5432
+        endpoint: portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com
+        read-only: true
         username: postgres
         password: Tmxhfl953!
-
-    slave:
+    read:
       hikari:
         driver-class-name: org.postgresql.Driver
         url: jdbc:postgresql://localhost:[forwardedPort]/postgres
+        port: 5432
+        endpoint: portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com
         read-only: true
         username: postgres
         password: Tmxhfl953!
 
-ssh-connection:
-  ssh-host: "ec2-54-80-124-254.compute-1.amazonaws.com"
-  ssh-port: 22
-  ssh-user: "ubuntu"
-  ssh-identity-file: "src/main/resources/portfolio-api-monitering-instance.pem"
 
-db-connection:
-  username: postgres
-  password: Tmxhfl953!
-  db-port: 5432
-  db-read-endpoint: "portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com"
-  db-write-endpoint: "portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com"
-#  db-read-url: "jdbc:postgresql://portfolio-rds-psql-instance-1.cht7mrcxyht1.us-east-1.rds.amazonaws.com:[forwardedPort]/basic"
-#  db-write-url: "jdbc:postgresql://portfolio-rds-psql-instance-1-us-east-1a.cht7mrcxyht1.us-east-1.rds.amazonaws.com:[forwardedPort]/basic"
-  db-read-url: "jdbc:postgresql://localhost:[forwardedPort]/postgres"
-  db-write-url: "jdbc:postgresql://localhost:[forwardedPort]/postgres"
 
 
