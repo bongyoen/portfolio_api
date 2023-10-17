@@ -29,6 +29,22 @@ dependencies {
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
+//    db관련
+//    implementation 'org.springframework.session:spring-session-jdbc'
+    implementation 'org.postgresql:postgresql'
+    implementation 'org.jetbrains:annotations:24.0.0'// 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'// 추가
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'// 추가
+//    implementation 'com.h2database:h2'// 추가
+//    runtimeOnly 'org.postgresql:postgresql' // 추가
+
+//    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+//    ssh연결
+//    implementation 'com.jcraft:jsch:0.1.55'
+    implementation 'com.github.mwiede:jsch:0.2.11'
+
+    runtimeOnly 'com.h2database:h2'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
