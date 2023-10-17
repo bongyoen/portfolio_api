@@ -45,6 +45,7 @@ public class WrtieDataSourceConfig {
         Integer forwardedPort = initializer.buildSshDbConnection(endpoint, port);  // ssh 연결 및 터널링 설정
 
         if (forwardedPort == 0) {
+            log.info("url : {}", url);
             return DataSourceBuilder.create()
                     .driverClassName("org.postgresql.Driver")
                     .url(url)
@@ -53,6 +54,7 @@ public class WrtieDataSourceConfig {
                     .type(HikariDataSource.class)
                     .build();
         }
+        log.info("url : {}", url);
 
         return DataSourceBuilder.create()
                 .driverClassName("org.postgresql.Driver")

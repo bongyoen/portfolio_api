@@ -28,7 +28,7 @@ spring:
     read:
       hikari:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com/postgres
+        url: jdbc:postgresql://localhost:portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres
         username: postgres
         password: Tmxhfl953!
 
