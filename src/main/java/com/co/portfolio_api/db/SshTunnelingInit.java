@@ -19,7 +19,6 @@ import static java.lang.System.exit;
 @Validated
 @Setter
 @ConfigurationProperties(prefix = "spring.datasource.ssh")
-
 public class SshTunnelingInit {
     private String host;
     @NotNull
@@ -39,8 +38,6 @@ public class SshTunnelingInit {
 
     public Integer buildSshDbConnection(String dbEndpoint, Integer dbPort) {
 
-        if (host == null) return 0;
-
         int forwardedPort;
 
         JSch jSch = new JSch();
@@ -57,7 +54,7 @@ public class SshTunnelingInit {
             log.error("fail to make ssh tunneling");
             this.closeSSH();
             exit(1);
-            throw new RuntimeException(e);
+            return 0;
         }
 
         return forwardedPort;

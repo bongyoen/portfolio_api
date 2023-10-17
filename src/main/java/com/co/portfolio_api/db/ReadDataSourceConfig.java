@@ -42,9 +42,7 @@ public class ReadDataSourceConfig {
     @Bean(name = "readOnlyDataSource")
     public DataSource readOnlyDataSource() {
 
-        Integer forwardedPort = initializer.buildSshDbConnection(endpoint, port);  // ssh 연결 및 터널링 설정
-
-        if (forwardedPort == 0) {
+        if (initializer == null) {
             log.info("url : {}", url);
             return DataSourceBuilder.create()
                     .driverClassName("org.postgresql.Driver")
@@ -54,6 +52,10 @@ public class ReadDataSourceConfig {
                     .type(HikariDataSource.class)
                     .build();
         }
+
+        Integer forwardedPort = initializer.buildSshDbConnection(endpoint, port);  // ssh 연결 및 터널링 설정
+
+
         log.info("url : {}", url);
 
         return DataSourceBuilder.create()
