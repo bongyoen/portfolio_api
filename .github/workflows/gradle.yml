@@ -1,12 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
-
 name: Java CI with Gradle
-
 
 env:
   AWS_REGION: "ap-northeast-2"
@@ -24,11 +16,11 @@ permissions:
 
 jobs:
   deploy:
-      name: Deploy
-      runs-on: ubuntu-latest
-      environment: production
-  
-      steps:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -40,25 +32,19 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
         with:
-          arguments: build -x test
-      # Spring Boot 어플리케이션 Build(1)
-#      - name: Spring Boot Build
-#        run: ./gradlew clean build --exclude-task test
-#
-#      - name: Make copy of artifacts
-#        run: chmod u+x "${GITHUB_WORKSPACE}/createandcopytofolder.sh" && bash "${GITHUB_WORKSPACE}/createandcopytofolder.sh"
-  
+          arguments: build
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ROLE_API_IAM }}
           aws-secret-access-key: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
           aws-region: ${{ env.AWS_REGION }}
-  
+
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-  
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
@@ -68,17 +54,10 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
-
-
       - name: Deploy to App Runner
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ROLE_API_IAM }}
-          aws-secret-access-key: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
-          aws-region: ${{ env.AWS_REGION }}
         env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ROLE_API_IAM }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
           ECR_REPO_URI: ${{ secrets.ECR_REPO_URI }}
         run: |
           aws apprunner start-deployment --service-arn arn:aws:apprunner:us-east-1:560531082032:service/portfolio-API/e21a35b3f0a14ebbbaed0690f48f7a58 --region us-east-1
-#          aws apprunner update-service --service-name portfolio-API --source-code "repository={imageUri=$ECR_REPO_URI}" --instance-configuration "cpu=256, memory=512Mi" --region $ECR_REPOSITORY
