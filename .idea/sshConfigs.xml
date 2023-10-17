@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="ec2-54-80-124-254.compute-1.amazonaws.com" id="0abb21f5-66a5-4683-a406-d0c04f3a95e5" keyPath="C:\Users\kuhj1\.ssh\portfolio-api-monitering-instance.pem" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
