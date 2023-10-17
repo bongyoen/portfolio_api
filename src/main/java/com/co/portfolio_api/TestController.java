@@ -1,23 +1,20 @@
 package com.co.portfolio_api;
 
 
-import com.co.portfolio_api.db.RoutingDataSourceImpl;
-import com.zaxxer.hikari.HikariDataSource;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class TestController {
     @Value("spring.datasource.write.hikari.username")
     private String username;
@@ -35,32 +32,73 @@ public class TestController {
         return new ResponseEntity<>("접근완료", HttpStatus.OK);
     }
 
+    @GetMapping(value = "readTest")
+    public ResponseEntity<String> readTest() {
+
+        try (
+                Connection connection = DriverManager.getConnection(
+                        "jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
+                        "postgres",
+                        "Tmxhfl953!"
+                )
+        ) {
+            return new ResponseEntity<>("연결! : {}" + connection.toString(), HttpStatus.OK);
+        } catch (Exception ignored) {
+            log.info("연결실패!");
+            return new ResponseEntity<>("연결실패!", HttpStatus.OK);
+
+        }
+    }
+
+    @GetMapping(value = "wrtieTest")
+    public ResponseEntity<String> wrtieTest() {
+
+        try (
+                Connection connection = DriverManager.getConnection(
+                        "jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
+                        "postgres",
+                        "Tmxhfl953!"
+                )
+        ) {
+            return new ResponseEntity<>("연결! : {}" + connection.toString(), HttpStatus.OK);
+        } catch (Exception ignored) {
+            log.info("연결실패!");
+            return new ResponseEntity<>("연결실패!", HttpStatus.OK);
+        }
+    }
+
     @GetMapping(value = "/")
     public ResponseEntity<String> restTest1() {
 
-        DataSource writeDataSource = DataSourceBuilder.create()
-                .driverClassName("org.postgresql.Driver")
-                .url(url)
-                .username(username)
-                .password(password)
-                .type(HikariDataSource.class)
-                .build();
-        DataSource readDataSource = DataSourceBuilder.create()
-                .driverClassName("org.postgresql.Driver")
-                .url(read_url)
-                .username(username)
-                .password(password)
-                .type(HikariDataSource.class)
-                .build();
+        try (
+                Connection connection = DriverManager.getConnection(
+                        "jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
+                        "postgres",
+                        "Tmxhfl953!"
+                )
+        ) {
 
-        RoutingDataSourceImpl routingDataSourceImpl = new RoutingDataSourceImpl();
-        Map<Object, Object> targetDataSource = new HashMap<>();
-        targetDataSource.put("write", writeDataSource);
-        targetDataSource.put("read", readDataSource);
-        routingDataSourceImpl.setTargetDataSources(targetDataSource);
-        routingDataSourceImpl.setDefaultTargetDataSource(writeDataSource);
+            log.info("연결! : {}", connection);
 
-        new LazyConnectionDataSourceProxy(routingDataSourceImpl);
+        } catch (Exception ignored) {
+            log.info("연결실패!");
+
+        }
+
+        try (
+                Connection connection = DriverManager.getConnection(
+                        "jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
+                        "postgres",
+                        "Tmxhfl953!"
+                )
+        ) {
+
+            log.info("연결! : {}", connection);
+
+        } catch (Exception ignored) {
+            log.info("연결실패!");
+
+        }
 
         return new ResponseEntity<>("접근완료1", HttpStatus.OK);
     }

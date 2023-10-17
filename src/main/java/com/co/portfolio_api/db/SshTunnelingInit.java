@@ -36,7 +36,7 @@ public class SshTunnelingInit {
             session.disconnect();
     }
 
-    public Integer buildSshDbConnection(String dbEndpoint, Integer dbPort) {
+    public Integer buildSshDbConnection(String dbEndpoint, Integer dbPort, Integer localPort) {
 
         if (host == null) return 0;
 
@@ -49,7 +49,7 @@ public class SshTunnelingInit {
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
 
-            forwardedPort = session.setPortForwardingL(0, dbEndpoint, dbPort);
+            forwardedPort = session.setPortForwardingL(localPort, dbEndpoint, dbPort);
 
         } catch (JSchException e) {
             log.error("fail to make ssh tunneling");

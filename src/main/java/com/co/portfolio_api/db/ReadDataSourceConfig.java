@@ -43,7 +43,7 @@ public class ReadDataSourceConfig {
     public DataSource readOnlyDataSource() {
 
         if (initializer == null) {
-            log.info("url : {}", url);
+            log.info("url : {} {} {}", url, username, password);
             return DataSourceBuilder.create()
                     .driverClassName("org.postgresql.Driver")
                     .url(url)
@@ -53,10 +53,10 @@ public class ReadDataSourceConfig {
                     .build();
         }
 
-        Integer forwardedPort = initializer.buildSshDbConnection(endpoint, port);  // ssh 연결 및 터널링 설정
+        Integer forwardedPort = initializer.buildSshDbConnection(endpoint, port, 20002);  // ssh 연결 및 터널링 설정
 
 
-        log.info("url : {}", url);
+        log.info("url : {} {} {}", url, username, password);
 
         return DataSourceBuilder.create()
                 .driverClassName("org.postgresql.Driver")
