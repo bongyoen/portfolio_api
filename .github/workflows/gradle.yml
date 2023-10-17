@@ -70,10 +70,14 @@ jobs:
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
 
+
       - name: Deploy to App Runner
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ROLE_API_IAM }}
+          aws-secret-access-key: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
+          aws-region: ${{ env.AWS_REGION }}
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ROLE_API_IAM }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
           ECR_REPO_URI: ${{ secrets.ECR_REPO_URI }}
         run: |
           aws apprunner start-deployment --service-arn arn:aws:apprunner:us-east-1:560531082032:service/portfolio-API/e21a35b3f0a14ebbbaed0690f48f7a58 --region us-east-1
