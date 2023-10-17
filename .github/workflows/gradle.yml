@@ -76,4 +76,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
           ECR_REPO_URI: ${{ secrets.ECR_REPO_URI }}
         run: |
-          aws apprunner update-service --service-name portfolio-API --source-code "repository={imageUri=$ECR_REPO_URI}" --instance-configuration "cpu=256, memory=512Mi" --region $ECR_REPOSITORY
+          aws apprunner update-service --service-arn arn:aws:apprunner:us-east-1:560531082032:service/portfolio-API/e21a35b3f0a14ebbbaed0690f48f7a58
+#          aws apprunner update-service --service-name portfolio-API --source-code "repository={imageUri=$ECR_REPO_URI}" --instance-configuration "cpu=256, memory=512Mi" --region $ECR_REPOSITORY
