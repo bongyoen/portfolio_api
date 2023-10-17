@@ -38,9 +38,10 @@ public class SshTunnelingInit {
 
     public Integer buildSshDbConnection(String dbEndpoint, Integer dbPort) {
 
-        int forwardedPort;
+        if (host == null) return 0;
 
         JSch jSch = new JSch();
+        int forwardedPort;
 
         try {
             jSch.addIdentity(keyfile);  // 개인키
@@ -54,7 +55,7 @@ public class SshTunnelingInit {
             log.error("fail to make ssh tunneling");
             this.closeSSH();
             exit(1);
-            return 0;
+            throw new RuntimeException(e);
         }
 
         return forwardedPort;

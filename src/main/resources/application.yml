@@ -1,7 +1,21 @@
 server:
   port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
 
 spring:
+  profiles:
+    group:
+      local: local
+      prod: prod
+    default: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -39,7 +53,35 @@ spring:
         read-only: true
         username: postgres
         password: Tmxhfl953!
-
-
-
-
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    write:
+      hikari:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres
+        username: postgres
+        password: Tmxhfl953!
+    read:
+      hikari:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres
+        username: postgres
+        password: Tmxhfl953!
+---

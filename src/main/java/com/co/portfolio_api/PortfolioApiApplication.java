@@ -13,6 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PortfolioApiApplication implements ApplicationRunner{
 
     public static void main(String[] args) {
+
+        System.out.println("스프링부트 시작!");
         SpringApplication.run(PortfolioApiApplication.class, args);
     }
 
