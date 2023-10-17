@@ -70,10 +70,10 @@ jobs:
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
 
-      - name: Deploy to App Runner
-      - env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ROLE_API_IAM }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
-          ECR_REPO_URI: ${{ secrets.ECR_REPO_URI }}
-        run: |
-          aws apprunner update-service --service-name portfolio-API --source-code "repository={imageUri=$ECR_REPO_URI}" --instance-configuration "cpu=256, memory=512Mi" --region $ECR_REPOSITORY
+#      - name: Deploy to App Runner
+#      - env:
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ROLE_API_IAM }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ROLE_API_IAM_SECRET_ACCESS }}
+#          ECR_REPO_URI: ${{ secrets.ECR_REPO_URI }}
+#        run: |
+#          aws apprunner update-service --service-name portfolio-API --source-code "repository={imageUri=$ECR_REPO_URI}" --instance-configuration "cpu=256, memory=512Mi" --region $ECR_REPOSITORY
