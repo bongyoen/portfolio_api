@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -25,10 +27,18 @@ public class TestController {
     @Value("spring.datasource.read.hikari.url")
     private String read_url;
 
+    private final HttpServletResponse response;
+    private final HttpServletRequest request;
+
+
     @GetMapping(value = "/info")
     public ResponseEntity<String> restTest() {
 
         System.out.println("info컨트롤러에 도달");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT");
+        response.setHeader("Access-Control-Allow-Headers",
+                "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization");
         return new ResponseEntity<>("접근완료", HttpStatus.OK);
     }
 
