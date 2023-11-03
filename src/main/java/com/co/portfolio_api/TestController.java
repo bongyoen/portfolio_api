@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -32,11 +34,13 @@ public class TestController {
 
 
     @GetMapping(value = "/info")
-    public ResponseEntity<String> restTest() {
+    public ResponseEntity<Map<String, String>> restTest() {
 
         System.out.println("info컨트롤러에 도달");
 
-        return new ResponseEntity<>("접근완료", HttpStatus.OK);
+        Map<String, String> res = new HashMap<>();
+        res.put("hi", "hello");
+        return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
     @GetMapping(value = "readTest")
