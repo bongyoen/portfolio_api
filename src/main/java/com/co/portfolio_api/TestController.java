@@ -35,10 +35,7 @@ public class TestController {
     public ResponseEntity<String> restTest() {
 
         System.out.println("info컨트롤러에 도달");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT");
-        response.setHeader("Access-Control-Allow-Headers",
-                "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization");
+
         return new ResponseEntity<>("접근완료", HttpStatus.OK);
     }
 

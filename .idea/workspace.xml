@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="prod db연결 테스트2">
+    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="cors 테스트">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/filter/WebMvcConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/filter/apiFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/PortfolioApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/PortfolioApiApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +140,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.prod">
+  <component name="RunManager" selected="Spring Boot.local">
     <configuration name="portfolio_api [buildZip]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -297,6 +307,7 @@
       <workItem from="1697560575682" duration="7586000" />
       <workItem from="1697616015933" duration="193000" />
       <workItem from="1697616315548" duration="821000" />
+      <workItem from="1699033645600" duration="1102000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -578,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697568797249</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="cors 테스트">
+      <option name="closed" value="true" />
+      <created>1699033820038</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1699033820038</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,7 +616,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="스웨거 추가" />
     <MESSAGE value="/주소 변경" />
     <MESSAGE value="rds pqsl read, write연결.&#10;application profile 생성" />
     <MESSAGE value="gitaction 수정" />
@@ -622,7 +640,8 @@
     <MESSAGE value="application.yml 수정" />
     <MESSAGE value="prod db연결 테스트" />
     <MESSAGE value="prod db연결 테스트2" />
-    <option name="LAST_COMMIT_MESSAGE" value="prod db연결 테스트2" />
+    <MESSAGE value="cors 테스트" />
+    <option name="LAST_COMMIT_MESSAGE" value="cors 테스트" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
