@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="filter추가">
+    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="res수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/TestController.java" afterDir="false" />
     </list>
@@ -298,7 +298,7 @@
       <workItem from="1697560575682" duration="7586000" />
       <workItem from="1697616015933" duration="193000" />
       <workItem from="1697616315548" duration="821000" />
-      <workItem from="1699033645600" duration="2120000" />
+      <workItem from="1699033645600" duration="3023000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -596,7 +596,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699034967276</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="res수정">
+      <option name="closed" value="true" />
+      <created>1699037572337</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1699037572337</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +623,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="rds pqsl read, write연결.&#10;application profile 생성" />
     <MESSAGE value="gitaction 수정" />
     <MESSAGE value="gitaction 수정2" />
     <MESSAGE value="gitaction 수정3" />
@@ -640,7 +647,8 @@
     <MESSAGE value="prod db연결 테스트2" />
     <MESSAGE value="cors 테스트" />
     <MESSAGE value="filter추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter추가" />
+    <MESSAGE value="res수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="res수정" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

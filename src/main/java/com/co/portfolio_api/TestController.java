@@ -38,6 +38,7 @@ public class TestController {
 
         System.out.println("info컨트롤러에 도달");
 
+
         Map<String, String> res = new HashMap<>();
         res.put("hi", "hello");
         return new ResponseEntity<>(res, HttpStatus.OK);
