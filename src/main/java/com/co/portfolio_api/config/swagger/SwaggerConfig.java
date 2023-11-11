@@ -1,4 +1,4 @@
-package com.co.portfolio_api.swagger;
+package com.co.portfolio_api.config.swagger;
 
 
 import org.springframework.context.annotation.Bean;

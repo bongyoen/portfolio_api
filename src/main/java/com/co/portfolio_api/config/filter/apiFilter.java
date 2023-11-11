@@ -1,4 +1,4 @@
-package com.co.portfolio_api.filter;
+package com.co.portfolio_api.config.filter;
 
 import lombok.extern.slf4j.Slf4j;
 

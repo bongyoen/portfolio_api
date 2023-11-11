@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-232.10072.27">
+  <component name="dataSourceStorageLocal" created-in="IU-232.10227.8">
     <data-source name="read" uuid="36bebfe3-265a-4960-843d-10293e11c903">
       <database-info product="PostgreSQL" version="14.6" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="14.6" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -25,6 +25,25 @@
     </data-source>
     <data-source name="write" uuid="3775e1da-3975-4225-af3f-eb2c45c0fa8b">
       <database-info product="PostgreSQL" version="14.6" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="14.6" exact-driver-version="42.6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="postgres">
+            <node kind="schema" qname="public" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>0abb21f5-66a5-4683-a406-d0c04f3a95e5</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+    <data-source name="postgres@database-1.cht7mrcxyht1.us-east-1.rds.amazonaws.com" uuid="f743a243-768e-47eb-b4c2-a5224e49bc31">
+      <database-info product="PostgreSQL" version="15.4" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.4" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />

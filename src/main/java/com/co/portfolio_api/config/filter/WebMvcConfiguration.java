@@ -1,4 +1,4 @@
-package com.co.portfolio_api.filter;
+package com.co.portfolio_api.config.filter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

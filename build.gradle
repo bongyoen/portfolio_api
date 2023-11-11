@@ -36,6 +36,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-configuration-processor'// 추가
     implementation 'com.github.mwiede:jsch:0.2.11'
 
+//    s3
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
     runtimeOnly 'com.h2database:h2'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

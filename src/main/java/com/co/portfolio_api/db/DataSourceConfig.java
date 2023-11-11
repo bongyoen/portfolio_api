@@ -13,43 +13,37 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.annotation.Validated;
 
 import javax.sql.DataSource;
-import java.io.IOException;
-import java.net.InetAddress;
 
 @Configuration
 @EnableTransactionManagement
 @Slf4j
-@ConfigurationProperties(prefix = "spring.datasource.write.hikari")
+@ConfigurationProperties(prefix = "spring.datasource")
 @Validated
 @Setter
-public class WrtieDataSourceConfig {
+public class DataSourceConfig {
 
-    @NotNull
-    private String url;
-    @NotNull
-    private Integer port;
-    @NotNull
-    private String endpoint;
     @NotNull
     private String username;
     @NotNull
     private String password;
+    @NotNull
+    private String url;
+    @NotNull
+    private String endpoint;
+    @NotNull
+    private Integer port;
 
     private final SshTunnelingInit initializer;
 
-    public WrtieDataSourceConfig(SshTunnelingInit initializer) {
+
+    public DataSourceConfig(SshTunnelingInit initializer) {
         this.initializer = initializer;
     }
 
-    @Bean(name = "writeOnlyDataSource")
-    public DataSource wrtieOnlyDataSource() throws IOException {
+    @Bean
+    public DataSource dataSource() {
 
-        log.info("how??? L: {}", initializer);
-        InetAddress pingcheck = InetAddress.getByName("8.8.8.8");
-
-        System.out.println("핑테스트 : " + pingcheck.isReachable(1000));
         if (initializer == null) {
-            log.info("url : {} {} {}", url, username, password);
             return DataSourceBuilder.create()
                     .driverClassName("org.postgresql.Driver")
                     .url(url)
@@ -58,9 +52,11 @@ public class WrtieDataSourceConfig {
                     .type(HikariDataSource.class)
                     .build();
         }
+
+
         Integer forwardedPort = initializer.buildSshDbConnection(endpoint, port, 20001);  // ssh 연결 및 터널링 설정
 
-        log.info("url : {} {} {}", url, username, password);
+        log.info("url : {} {} {} {}", url, username, password, forwardedPort);
 
         return DataSourceBuilder.create()
                 .driverClassName("org.postgresql.Driver")
@@ -69,5 +65,7 @@ public class WrtieDataSourceConfig {
                 .password(password)
                 .type(HikariDataSource.class)
                 .build();
+
+
     }
 }

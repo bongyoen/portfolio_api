@@ -1,6 +1,8 @@
 package com.co.portfolio_api;
 
 
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.S3Object;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,17 +30,18 @@ public class TestController {
     private String url;
     @Value("spring.datasource.read.hikari.url")
     private String read_url;
-
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucket;
     private final HttpServletResponse response;
     private final HttpServletRequest request;
-
+    private final AmazonS3Client amazonS3Client;
 
     @GetMapping(value = "/info")
     public ResponseEntity<Map<String, String>> restTest() {
 
         System.out.println("info컨트롤러에 도달");
-
-
+        S3Object obj = amazonS3Client.getObject(bucket, "/dir-1/게코.png");
+        log.info("s3 이미지 {}", obj.toString());
         Map<String, String> res = new HashMap<>();
         res.put("hi", "hello");
         return new ResponseEntity<>(res, HttpStatus.OK);

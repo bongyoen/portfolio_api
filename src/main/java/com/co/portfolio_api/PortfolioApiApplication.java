@@ -19,9 +19,13 @@ public class PortfolioApiApplication implements ApplicationRunner {
     private ServerProperties serverProperties;
 
     public static void main(String[] args) {
+        try {
+            System.out.println("스프링부트 시작!");
+            SpringApplication.run(PortfolioApiApplication.class, args);
+        } catch (Exception e) {
+            log.error("sdk연결 실패?!");
+        }
 
-        System.out.println("스프링부트 시작!");
-        SpringApplication.run(PortfolioApiApplication.class, args);
     }
 
 
