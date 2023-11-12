@@ -2,7 +2,6 @@ package com.co.portfolio_api;
 
 
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.S3Object;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,10 +39,13 @@ public class TestController {
 
     @GetMapping(value = "/info")
     public ResponseEntity<Map<String, String>> restTest() {
-
         System.out.println("info컨트롤러에 도달");
-        S3Object obj = amazonS3Client.getObject(bucket, "/dir-1/게코.png");
-        log.info("s3 이미지 {}", obj.toString());
+        LocalDateTime dateTime = LocalDateTime.now();
+        dateTime = dateTime.plusMinutes(30);
+
+        URL generatePresignedUrl = amazonS3Client.generatePresignedUrl(bucket, "게코.png", java.sql.Timestamp.valueOf(dateTime));
+
+        log.info("s3 객체 : {} ", generatePresignedUrl);
         Map<String, String> res = new HashMap<>();
         res.put("hi", "hello");
         return new ResponseEntity<>(res, HttpStatus.OK);

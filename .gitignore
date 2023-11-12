@@ -23,6 +23,7 @@ bin/
 *.iml
 *.ipr
 *.pem
+application-*.yml
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/

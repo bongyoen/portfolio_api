@@ -38,6 +38,7 @@ public class SshTunnelingInit {
 
     public Integer buildSshDbConnection(String dbEndpoint, Integer dbPort, Integer localPort) {
 
+        log.info("호스트네임!!! : {}", host);
         if (host == null) return 0;
 
         JSch jSch = new JSch();

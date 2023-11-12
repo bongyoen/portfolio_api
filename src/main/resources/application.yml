@@ -1,76 +1,13 @@
+spring:
+  profiles:
+    default: prod
+
+---
 server:
   port: 8080
   tomcat:
     uri-encoding: UTF-8
 
-
-spring:
-  profiles:
-    active: local # default
-    group:
-      local:  # local, common profile을 그룹지어 함께 어플리케이션 구동
-        - common
-      prod:   # prod, common profile을 그룹지어 함께 어플리케이션 구동
-        - common
-
-
----
-spring:
-  config:
-    activate:
-      on-profile: common   # application-common.yml 과 동일한 역할
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-
-cloud:
-  aws:
-    s3:
-      bucket: portfoliobeyondi
-    stack.auto: false
-    region.static: us-east-1
-    credentials:
-      accessKey: AKIAYFASBRMYNAZVO7OW
-      secretKey: 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
-
----
-spring:
-  config:
-    activate:
-      on-profile: local
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        format_sql: true
-        jdbc:
-          lob:
-            non_contextual_creation: true
-  datasource:
-    ssh:
-      host: ec2-54-80-124-254.compute-1.amazonaws.com
-      port: 22
-      user: ubuntu
-      keyfile: src/main/resources/portfolio-api-monitering-instance.pem
-    endpoint: database-1.cht7mrcxyht1.us-east-1.rds.amazonaws.com
-    port: 5432
-    url: jdbc:postgresql://localhost:[forwardedPort]/postgres
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: Tmxhfl953!
-
-logging:
-  level:
-    com:
-      amazonaws:
-        util:
-          EC2MetadataUtils: error
-
-
----
 spring:
   config:
     activate:
@@ -87,8 +24,18 @@ spring:
             non_contextual_creation: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://database-1.cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres
-    port: 5432
-    username: postgres
-    password: Tmxhfl953!
+    url: ${{ secrets.DB_URL }}
+    port: ${{ secrets.DB_PORT }}
+    username: ${{ secrets.DB_USERNAME }}
+    password: ${{ secrets.DB_PASSWORD }}
+cloud:
+  aws:
+    s3:
+      bucket: ${{ secrets.AWS_BUCKET }}
+    stack.auto: false
+    region.static: ${{ secrets.AWS_REGION }}
+    credentials:
+      accessKey: ${{ secrets.AWS_ACCESS_KEY }}
+      secretKey: ${{ secrets.AWS_SECRET_KEY }}
+---
 ---
