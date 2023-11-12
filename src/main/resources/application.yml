@@ -24,18 +24,18 @@ spring:
             non_contextual_creation: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${{ secrets.DB_URL }}
-    port: ${{ secrets.DB_PORT }}
-    username: ${{ secrets.DB_USERNAME }}
-    password: ${{ secrets.DB_PASSWORD }}
+    url: ${DB_URL}
+    port: ${DB_PORT}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 cloud:
   aws:
     s3:
-      bucket: ${{ secrets.AWS_BUCKET }}
+      bucket: ${AWS_BUCKET}
     stack.auto: false
-    region.static: ${{ secrets.AWS_REGION }}
+    region.static: ${AWS_REGION}
     credentials:
-      accessKey: ${{ secrets.AWS_ACCESS_KEY }}
-      secretKey: ${{ secrets.AWS_SECRET_KEY }}
+      accessKey: ${AWS_ACCESS_KEY}
+      secretKey: ${AWS_SECRET_KEY}
 ---
 ---
