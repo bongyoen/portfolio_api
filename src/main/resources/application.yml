@@ -9,6 +9,9 @@ server:
     uri-encoding: UTF-8
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   config:
     activate:
       on-profile: prod
