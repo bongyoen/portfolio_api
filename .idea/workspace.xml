@@ -4,9 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="application.yml 분리">
+    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="jpa, queryDsl, 테이블 생성, 컨트롤러 추가">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/business/menu/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/business/menu/MenuDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/business/menu/MenuRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/business/menu/MenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/BoardDtl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/CmmnCl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/CmmnDtlCl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36bebfe3-265a-4960-843d-10293e11c903.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36bebfe3-265a-4960-843d-10293e11c903/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36bebfe3-265a-4960-843d-10293e11c903/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36bebfe3-265a-4960-843d-10293e11c903/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36bebfe3-265a-4960-843d-10293e11c903/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3775e1da-3975-4225-af3f-eb2c45c0fa8b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3775e1da-3975-4225-af3f-eb2c45c0fa8b/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3775e1da-3975-4225-af3f-eb2c45c0fa8b/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3775e1da-3975-4225-af3f-eb2c45c0fa8b/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3775e1da-3975-4225-af3f-eb2c45c0fa8b/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/business/resource/ResourceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/business/resource/ResourceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/Mber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/db/entity/Mber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +148,7 @@
       <recent name="C:\Users\kuhj1\IdeaProjects\portfolio_api\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.co.portfolio_api.db.entity" />
       <recent name="com.co.portfolio_api.db" />
     </key>
   </component>
@@ -304,7 +332,12 @@
       <workItem from="1699661962023" duration="10861000" />
       <workItem from="1699689685784" duration="962000" />
       <workItem from="1699742619656" duration="7901000" />
-      <workItem from="1699752250165" duration="1887000" />
+      <workItem from="1699752250165" duration="3597000" />
+      <workItem from="1700042907710" duration="595000" />
+      <workItem from="1700385819061" duration="17000" />
+      <workItem from="1700912180574" duration="9648000" />
+      <workItem from="1700973451877" duration="7802000" />
+      <workItem from="1701066724125" duration="1028000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -634,7 +667,31 @@
       <option name="project" value="LOCAL" />
       <updated>1699753129533</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="application.yml 변경">
+      <option name="closed" value="true" />
+      <created>1699755382634</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1699755382634</updated>
+    </task>
+    <task id="LOCAL-00043" summary="application.yml 변경2">
+      <option name="closed" value="true" />
+      <created>1699755986968</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1699755986968</updated>
+    </task>
+    <task id="LOCAL-00044" summary="jpa, queryDsl, 테이블 생성, 컨트롤러 추가">
+      <option name="closed" value="true" />
+      <created>1700925231481</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1700925231481</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,9 +710,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="gitaction 수정4" />
-    <MESSAGE value="gitaction 수정5" />
-    <MESSAGE value="gitaction 수정6" />
     <MESSAGE value="gitaction 수정7" />
     <MESSAGE value="gitaction 수정8" />
     <MESSAGE value="gitaction 수정9" />
@@ -678,7 +732,10 @@
     <MESSAGE value="res수정2" />
     <MESSAGE value="s3 연동" />
     <MESSAGE value="application.yml 분리" />
-    <option name="LAST_COMMIT_MESSAGE" value="application.yml 분리" />
+    <MESSAGE value="application.yml 변경" />
+    <MESSAGE value="application.yml 변경2" />
+    <MESSAGE value="jpa, queryDsl, 테이블 생성, 컨트롤러 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="jpa, queryDsl, 테이블 생성, 컨트롤러 추가" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

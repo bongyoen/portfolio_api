@@ -1,4 +1,4 @@
-package com.co.portfolio_api;
+package com.co.portfolio_api.business;
 
 
 import com.amazonaws.services.s3.AmazonS3Client;
