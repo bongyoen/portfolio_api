@@ -1,4 +1,4 @@
-package com.co.portfolio_api.mber;
+package com.co.portfolio_api.business.mber;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
