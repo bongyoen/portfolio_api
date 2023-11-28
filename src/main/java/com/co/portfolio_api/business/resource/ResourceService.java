@@ -35,7 +35,7 @@ public class ResourceService {
             if (resources == null) {
                 throw new RuntimeException("not found image!");
             } else {
-                URL generatePresignedUrl = amazonS3Client.generatePresignedUrl(bucket, String.format("%s%s", resources.getPath(), resources.getName()), java.sql.Timestamp.valueOf(dateTime));
+                URL generatePresignedUrl = amazonS3Client.generatePresignedUrl(bucket, String.format("%s%s.%s", resources.getPath(), resources.getName(), resources.getExtension()), java.sql.Timestamp.valueOf(dateTime));
                 res.setPreSingedUrl(generatePresignedUrl.toString());
                 res.setName(cond.name);
                 return res;

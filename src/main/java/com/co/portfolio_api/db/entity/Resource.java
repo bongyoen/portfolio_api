@@ -16,8 +16,15 @@ public class Resource {
     @Column(name = "resource_no")
     private Integer resourceNo;
 
+    @ManyToOne
+    @JoinColumn(name = "resource_cl", nullable = false)
+    private CmmnDtlCl resourceCl;
+
     @Column(name = "path", nullable = false)
     private String path;
+
+    @Column(name = "extension", length = 5)
+    private String extension;
 
     @Column(name = "name", nullable = false)
     private String name;

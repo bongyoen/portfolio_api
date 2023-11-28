@@ -20,6 +20,10 @@ public class CmmnCl {
     @Column(name = "cl_code_alt", nullable = false)
     private String clCodeAlt;
 
+    @ManyToOne
+    @JoinColumn(name = "upper_cl_code", nullable = false)
+    private CmmnCl upperClCode;
+
     @OneToMany(mappedBy = "clCode")
     private List<CmmnDtlCl> cmmnDtlCls = new ArrayList<>();
 

@@ -10,6 +10,7 @@ public class ResourceDto {
     @Setter
     public static class ResourceCond {
         String name;
+        String extension;
     }
 
     @Getter
