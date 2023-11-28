@@ -7,8 +7,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Arrays;
-
 
 @Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {
@@ -42,7 +40,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 //        registrationBean.addUrlPatterns("/*"); //전체 URL 포함
 //        registrationBean.addUrlPatterns("/test/*"); //특정 URL 포함
 //        registrationBean.setUrlPatterns(Arrays.asList(INCLUDE_PATHS)); //여러 특정 URL 포함
-        registrationBean.setUrlPatterns(Arrays.asList("/test/*", "/test2/*", "/info/*", "/menu/*"));
+        registrationBean.addUrlPatterns("/*");
 
         return registrationBean;
     }

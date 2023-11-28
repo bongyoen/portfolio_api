@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="공통코드 테이블 생성 및 header api 추가">
+    <list default="true" id="2da2131d-9058-4ecb-969e-34f152fdb499" name="변경" comment="api filter 변경!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/config/filter/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/co/portfolio_api/config/filter/WebMvcConfiguration.java" afterDir="false" />
     </list>
@@ -306,7 +306,7 @@
       <workItem from="1699689685784" duration="962000" />
       <workItem from="1699742619656" duration="7901000" />
       <workItem from="1699752250165" duration="1887000" />
-      <workItem from="1701154037206" duration="2360000" />
+      <workItem from="1701154037206" duration="3061000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -644,7 +644,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701154875264</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="api filter 변경!">
+      <option name="closed" value="true" />
+      <created>1701156703436</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1701156703436</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +671,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="gitaction 수정5" />
     <MESSAGE value="gitaction 수정6" />
     <MESSAGE value="gitaction 수정7" />
     <MESSAGE value="gitaction 수정8" />
@@ -688,7 +695,8 @@
     <MESSAGE value="s3 연동" />
     <MESSAGE value="application.yml 분리" />
     <MESSAGE value="공통코드 테이블 생성 및 header api 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="공통코드 테이블 생성 및 header api 추가" />
+    <MESSAGE value="api filter 변경!" />
+    <option name="LAST_COMMIT_MESSAGE" value="api filter 변경!" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
