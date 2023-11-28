@@ -42,7 +42,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 //        registrationBean.addUrlPatterns("/*"); //전체 URL 포함
 //        registrationBean.addUrlPatterns("/test/*"); //특정 URL 포함
 //        registrationBean.setUrlPatterns(Arrays.asList(INCLUDE_PATHS)); //여러 특정 URL 포함
-        registrationBean.setUrlPatterns(Arrays.asList("/test/*", "/test2/*", "/info/*", "/menu/webHeaders/*", "/menu/*"));
+        registrationBean.setUrlPatterns(Arrays.asList("/test/*", "/test2/*", "/info/*", "/menu/*"));
 
         return registrationBean;
     }
