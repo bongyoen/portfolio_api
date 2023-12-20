@@ -54,13 +54,7 @@ public class TestController {
     @GetMapping(value = "readTest")
     public ResponseEntity<String> readTest() {
 
-        try (
-                Connection connection = DriverManager.getConnection(
-                        "jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
-                        "postgres",
-                        "Tmxhfl953!"
-                )
-        ) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres", "postgres", "Tmxhfl953!")) {
             return new ResponseEntity<>("연결! : {}" + connection.toString(), HttpStatus.OK);
         } catch (Exception ignored) {
             log.info("연결실패!");
@@ -72,13 +66,7 @@ public class TestController {
     @GetMapping(value = "wrtieTest")
     public ResponseEntity<String> wrtieTest() {
 
-        try (
-                Connection connection = DriverManager.getConnection(
-                        "jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
-                        "postgres",
-                        "Tmxhfl953!"
-                )
-        ) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres", "postgres", "Tmxhfl953!")) {
             return new ResponseEntity<>("연결! : {}" + connection.toString(), HttpStatus.OK);
         } catch (Exception ignored) {
             log.info("연결실패!");
@@ -89,13 +77,7 @@ public class TestController {
     @GetMapping(value = "/")
     public ResponseEntity<String> restTest1() {
 
-        try (
-                Connection connection = DriverManager.getConnection(
-                        "jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
-                        "postgres",
-                        "Tmxhfl953!"
-                )
-        ) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://portfolio-psql.cluster-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres", "postgres", "Tmxhfl953!")) {
 
             log.info("연결! : {}", connection);
 
@@ -104,13 +86,7 @@ public class TestController {
 
         }
 
-        try (
-                Connection connection = DriverManager.getConnection(
-                        "jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres",
-                        "postgres",
-                        "Tmxhfl953!"
-                )
-        ) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://portfolio-psql.cluster-ro-cht7mrcxyht1.us-east-1.rds.amazonaws.com:5432/postgres", "postgres", "Tmxhfl953!")) {
 
             log.info("연결! : {}", connection);
 

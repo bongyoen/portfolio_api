@@ -7,28 +7,14 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Getter
-@Setter
-@Table(name = "board")
+@Entity @Getter @Setter @Table(name = "board")
 public class Board {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "board_no")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "board_no")
     private Integer boardNo;
-
-    @ManyToOne
-    @JoinColumn(name = "cl_dtl_code", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "board_cl", nullable = false)
     private CmmnDtlCl boardCl;
-
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    @OneToMany(mappedBy = "board")
+    @Column(name = "board_nm", nullable = false)
+    private String boardNm;
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
     private List<BoardDtl> boardDtls = new ArrayList<>();
-
-    public void addBoardDtl(BoardDtl boardDtl) {
-        this.boardDtls.add(boardDtl);
-        boardDtl.setBoard(this);
-    }
 }

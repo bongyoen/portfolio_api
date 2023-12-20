@@ -20,7 +20,7 @@ public class CmmnCl {
     @Column(name = "cl_code_alt", nullable = false)
     private String clCodeAlt;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "upper_cl_code", nullable = false)
     private CmmnCl upperClCode;
 
