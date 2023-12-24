@@ -12,6 +12,6 @@ public class BoardDtl {
     private Board board;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "board_dtl_cl", nullable = false)
     private CmmnDtlCl boardDtlCl;
-    @Column(name = "board_dtl_txt")
+    @Column(name = "board_dtl_txt", length = 1000)
     private String boardDtlTxt;
 }

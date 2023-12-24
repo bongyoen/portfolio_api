@@ -7,11 +7,17 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity @Getter @Setter @Table(name = "board")
+@Entity
+@Getter
+@Setter
+@Table(name = "board")
 public class Board {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "board_no")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "board_no")
     private Integer boardNo;
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "board_cl", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_cl", nullable = false)
     private CmmnDtlCl boardCl;
     @Column(name = "board_nm", nullable = false)
     private String boardNm;

@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +16,10 @@ import static com.co.portfolio_api.db.entity.QBoard.board;
 @Slf4j
 public class BoardRepository {
     private final JPAQueryFactory factory;
-    private final EntityManager em;
 
     public List<BoardDto.BoardRslt> findByCl(BoardDto.BoardCond cond) {
-        System.out.println("들어왔나2" + cond.getBoardCl());
-        List<BoardDto.BoardRslt> result1 = new ArrayList<>();
 
+        List<BoardDto.BoardRslt> result1 = new ArrayList<>();
 
         List<Board> boards = factory.selectFrom(board).where(board.boardCl.clDtlCode.eq(cond.getBoardCl())).fetch();
 
