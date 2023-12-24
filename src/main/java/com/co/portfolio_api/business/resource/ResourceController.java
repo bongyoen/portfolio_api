@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/resource")
 @RequiredArgsConstructor
@@ -23,6 +25,14 @@ public class ResourceController {
     public ResponseEntity<ResourceDto.ResourceRslt> postImageUrl(@RequestBody ResourceDto.ResourceCond cond) {
         try {
             return new ResponseEntity<>(service.postImageUrl(cond), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+    @PostMapping("/images")
+    public ResponseEntity<List<ResourceDto.ResourceRslt>> postImagesUrl(@RequestBody List<ResourceDto.ResourceCond> cond) {
+        try {
+            return new ResponseEntity<>(service.postImagesUrl(cond), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

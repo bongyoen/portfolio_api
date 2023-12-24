@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +31,6 @@ public class ResourceService {
 
 
         try {
-            log.info("실행됨 {}", cond.getName());
             Resource resources = repository.findByName(cond.getName());
 
             if (resources == null) {
@@ -44,5 +45,24 @@ public class ResourceService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<ResourceDto.ResourceRslt> postImagesUrl(List<ResourceDto.ResourceCond> conds) {
+        List<ResourceDto.ResourceRslt> resourceRslts = new ArrayList<>();
+
+        LocalDateTime dateTime = LocalDateTime.now();
+        dateTime = dateTime.plusMinutes(30);
+
+        for (ResourceDto.ResourceCond cond : conds) {
+            Resource resources = repository.findByName(cond.getName());
+
+            ResourceDto.ResourceRslt res = new ResourceDto.ResourceRslt();
+            URL generatePresignedUrl = amazonS3Client.generatePresignedUrl(bucket, String.format("%s%s.%s", resources.getPath(), resources.getName(), resources.getExtension()), java.sql.Timestamp.valueOf(dateTime));
+            res.setPreSingedUrl(generatePresignedUrl.toString());
+            res.setName(cond.name);
+            resourceRslts.add(res);
+
+        }
+        return resourceRslts;
     }
 }
