@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MenuController {
 
     private final MenuService service;
-    @GetMapping(value = "/menu/webHeaders")
+    @GetMapping(value = "/menu/webHeaders", produces = "application/json")
     public ResponseEntity<MenuDto.WebHeaderRslt> getWebHeaders() {
         try {
             return new ResponseEntity<>(service.getWebHeaders(), HttpStatus.OK);
@@ -22,7 +22,7 @@ public class MenuController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping(value = "/webHeaders")
+    @GetMapping(value = "/webHeaders", produces = "application/json")
     public ResponseEntity<MenuDto.WebHeaderRslt> webHeaders() {
         try {
             return new ResponseEntity<>(service.getWebHeaders(), HttpStatus.OK);
