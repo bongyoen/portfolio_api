@@ -23,6 +23,7 @@ public class MenuRepository {
     public List<String> findAllMenuName() {
         return factory.select(menu.title) //
                 .from(menu)
+                .orderBy(menu.menuNo.asc())
                 .fetch();
     }
 }

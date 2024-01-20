@@ -30,10 +30,18 @@ public class BoardRepository {
             rslt.setBoardNo(value.getBoardNo());
             rslt.setBoardCl(value.getBoardCl().getClDtlCode());
             rslt.setBoardNm(value.getBoardNm());
+            rslt.setBoardUrl(value.getBoardUrl());
 
             rslt.getBoardRsltDtls()
                     .addAll(value.getBoardDtls().stream()
-                            .map(dtl -> new BoardDto.BoardRsltDtl(dtl.getBoardDtlNo(), dtl.getBoardDtlCl().getClDtlCode(), dtl.getBoardDtlTxt()))
+                            .map(dtl ->
+                                    new BoardDto.BoardRsltDtl(
+                                            dtl.getBoardDtlNo(),
+                                            dtl.getBoardDtlCl().getClDtlCode(),
+                                            dtl.getBoardDtlTitle(),
+                                            dtl.getBoardDtlTxt(),
+                                            dtl.getBoardDtlUrl()
+                                    ))
                             .toList());
 
             result1.add(rslt);

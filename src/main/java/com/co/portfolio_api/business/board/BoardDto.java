@@ -26,6 +26,7 @@ public class BoardDto {
         private Integer boardNo;
         private String boardNm;
         private String boardCl;
+        private String boardUrl;
         private List<BoardRsltDtl> boardRsltDtls = new ArrayList<>();
 
         @QueryProjection
@@ -50,13 +51,17 @@ public class BoardDto {
     public static class BoardRsltDtl {
         private Integer boardDtlNo;
         private String boardDtlCl;
+        private String boardDtlTitle;
         private String boardDtlTxt;
+        private String boardDtlUrl;
 
         @QueryProjection
-        public BoardRsltDtl(Integer boardDtlNo, String boardDtlCl, String boardDtlTxt) {
+        public BoardRsltDtl(Integer boardDtlNo, String boardDtlCl,String boardDtlTitle, String boardDtlTxt, String boardDtlUrl) {
             this.boardDtlNo = boardDtlNo;
             this.boardDtlCl = boardDtlCl;
+            this.boardDtlTitle = boardDtlTitle;
             this.boardDtlTxt = boardDtlTxt;
+            this.boardDtlUrl = boardDtlUrl;
         }
     }
 }

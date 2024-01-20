@@ -2,6 +2,7 @@ package com.co.portfolio_api.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,6 +22,10 @@ public class Board {
     private CmmnDtlCl boardCl;
     @Column(name = "board_nm", nullable = false)
     private String boardNm;
+    @Column(name = "board_url")
+    private String boardUrl;
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
+    @OrderBy("sortNo ASC")
+    @Where(clause = "use_yn = 'Y'")
     private List<BoardDtl> boardDtls = new ArrayList<>();
 }
